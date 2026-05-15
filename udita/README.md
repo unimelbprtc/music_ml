@@ -52,3 +52,6 @@
 - https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html
 - https://scikit-learn.org/stable/auto_examples/compose/plot_compare_reduction.html
 - https://www.geeksforgeeks.org/machine-learning/sklearn-model-hyper-parameters-tuning/
+- https://towardsdatascience.com/grid-search-or-random-search-for-model-tuning-f09edab6aaa3/
+- https://medium.com/@aditib259/a-comprehensive-guide-to-hyperparameter-tuning-in-machine-learning-dd9bb8072d02
+- https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html
