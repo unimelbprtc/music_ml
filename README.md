@@ -42,7 +42,7 @@ pip install -r requirements.txt
 ```bat
 python -m venv .venv
 .venv\Scripts\activate
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 > To deactivate the environment when you're done, run `deactivate`.
@@ -67,7 +67,7 @@ pip install -r requirements.txt
 No separate execution is needed — but you can verify it works in isolation:
 
 ```bash
-python3 -c "
+python -c "
 import kagglehub, os
 from data_cleaning import load_and_clean
 path = kagglehub.dataset_download('vicsuperman/prediction-of-music-genre')
