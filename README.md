@@ -2,28 +2,60 @@
 
 **Dataset**: [Prediction of Music Genre](https://www.kaggle.com/datasets/vicsuperman/prediction-of-music-genre) — Kaggle (~50,000 songs, 18 audio features)
 
-
 ## Research Questions
-How machine learning can be used to improve music streaming services?
 
-| Member | Notebook | Research Question |
-|--------|----------|------------------|
-| Pumi | `pumi/music_classifying_genres.ipynb` | Can audio features predict a song's genre? |
-| Scott | `scott/music_modes_prediction.ipynb` | Can audio features predict musical mode (Major vs Minor)? |
-| Udita | `udita/recommendation_of_music.ipynb` | Can a model recommend music based on genre, mode, and tempo? |
-| Puze | `zed/popularity.ipynb` | Can audio features predict a song's popularity? |
+How can machine learning be used to improve music streaming services?
+
+| Member | Notebook                              | Research Question                                            |
+| ------ | ------------------------------------- | ------------------------------------------------------------ |
+| Pumi   | `pumi/music_classifying_genres.ipynb` | Can audio features predict a song's genre?                   |
+| Scott  | `scott/music_modes_prediction.ipynb`  | Can audio features predict musical mode (Major vs Minor)?    |
+| Udita  | `udita/recommendation_of_music.ipynb` | Can a model recommend music based on genre, mode, and tempo? |
+| Puze   | `zed/popularity.ipynb`                | Can audio features predict a song's popularity?              |
 
 ---
 
 ## Prerequisites
 
-Python 3.10+ with the following packages:
+### 1. Python
+
+Python **3.10 or later** is required. Check your version:
 
 ```bash
-pip install pandas numpy scikit-learn matplotlib seaborn kagglehub
+python3 --version
 ```
 
-The dataset is downloaded automatically via `kagglehub` on first run and cached locally.
+### 2. Set up a virtual environment and install packages
+
+Using a virtual environment keeps dependencies isolated from your system Python and ensures everyone reproducing this project gets the same packages.
+
+**macOS / Linux**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+**Windows**
+
+```bat
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+> To deactivate the environment when you're done, run `deactivate`.
+
+| Package                 | Used for                                                      |
+| ----------------------- | ------------------------------------------------------------- |
+| `pandas`, `numpy`       | Data loading and manipulation                                 |
+| `scipy`                 | Statistical tests (Pearson correlation, random distributions) |
+| `scikit-learn`          | ML models, preprocessing, evaluation                          |
+| `matplotlib`, `seaborn` | Visualisation                                                 |
+| `kagglehub`             | Automatic dataset download from Kaggle                        |
+| `umap-learn`            | UMAP dimensionality reduction                                 |
+| `jupyter`               | Running `.ipynb` notebooks                                    |
 
 ---
 
@@ -35,10 +67,9 @@ The dataset is downloaded automatically via `kagglehub` on first run and cached 
 No separate execution is needed — but you can verify it works in isolation:
 
 ```bash
-cd music_ml
 python3 -c "
-from data_cleaning import load_and_clean
 import kagglehub, os
+from data_cleaning import load_and_clean
 path = kagglehub.dataset_download('vicsuperman/prediction-of-music-genre')
 df = load_and_clean(os.path.join(path, 'music_genre.csv'))
 print(df.shape)
@@ -46,12 +77,10 @@ print(df.shape)
 ```
 
 Expected output:
+
 ```
-Loaded:                        50,005 rows
-After bad value removal:       40,560 rows
-Exact duplicates removed:           0
-Conflicting duplicates removed: 5,080
-Final shape:                   (35480, 14)
+Cleaned data shape: (35480, 14)
+(35480, 14)
 ```
 
 ---
@@ -65,6 +94,7 @@ jupyter notebook data_cleaning_visualisation.ipynb
 ```
 
 Produces:
+
 - Provenance bar chart (row count at each cleaning step)
 - Genre and mode class distributions
 - Numeric feature histograms
@@ -78,21 +108,25 @@ Each notebook is fully self-contained — it imports `load_and_clean()`, perform
 Run them in any order; they are independent of each other.
 
 **Genre Classification — Pumi**
+
 ```bash
 jupyter notebook pumi/music_classifying_genres.ipynb
 ```
 
 **Mode Prediction (Major vs Minor) — Scott**
+
 ```bash
 jupyter notebook scott/music_modes_prediction.ipynb
 ```
 
 **Music Recommendation — Udita**
+
 ```bash
 jupyter notebook udita/recommendation_of_music.ipynb
 ```
 
-**Popularity Prediction — Zed**
+**Popularity Prediction — Puze**
+
 ```bash
 jupyter notebook zed/popularity.ipynb
 ```
