@@ -35,10 +35,12 @@ def load_and_clean(csv_path):
         .any(axis=1)
     )
     df = df[~conflict].reset_index(drop=True)
+    # copy the dataframe to preserve a few columns
+    processed_df = df.copy()
 
     # Drop metadata columns if present
     for col in ["artist_name", "track_name", "instance_id", "obtained_date"]:
-        if col in df.columns:
-            df = df.drop(columns=[col])
+        if col in processed_df.columns:
+            processed_df = processed_df.drop(columns=[col])
 
-    return df
+    return processed_df, df

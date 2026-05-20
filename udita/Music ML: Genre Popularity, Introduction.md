@@ -20,8 +20,24 @@ different target labels, and tune the set of hyperparameters for the best-fit mo
 
 Spotify is the leader in digitized music delivery platform with more than 100 million songs. We leveraged the  
 audio attributes published by Spotify for our current study. These attributes are Danceability, Energy, Loudness ,
-Speechiness ,Acousticness, Instrumentalness ,Liveness ,Valence ,Tempo [3]. We leveraged the data published via
+Speechiness, Acousticness, Instrumentalness, Liveness, Valence, Tempo [3]. We leveraged the data published via
 Kagglehub[6], which is one of the largest host of opensource data and analysis.
+
+The initial data exploration revealed that we can generate great insight about the specific relationship 
+between a track's popularity and its genre. Genre is a categorical feature, thus renders well to classification
+and neural network models. 
+Music's popularity, a continuous numeric feature, was one of the most salient label for digital music platforms. 
+Finding predictability of popularity via regression, ensemble and neural network was chosen as a critical
+analysis for the study.
+Another categorical label, mode, presented the opportunity to analyze if binarized attribute can be predicted
+from the fairly large set of diverse audio features.
+Recommendation is a how consumers find new music and artists. We wanted to discover how and if a label like tempo can
+be used to recommend artists by comparing classification and neural network models.
+The following were the four research questions we intended to answer - 
+- Genres: Can a model classify genres based on selected features and neural Network?
+- Popularity: Can a model predict popularity using other features?
+- Recommendation: Can a model recommend artists or tracks based on a feature?
+- Mode: Can a model predict whether a song is in Major or Minor mode from its audio features?
 
 In the start, we focused keenly on data pre-processing. Many data points showed high degrees of
 correlatedness, like Energy and Danceability, thus lack of independence needed to be combined to increase 

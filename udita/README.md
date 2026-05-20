@@ -1,6 +1,17 @@
 # Assignment 2
 
 > Prepared by Udita Bose
+> 
+> equal_tempo_bins = list(range(0, int(processed_df['tempo'].max()), 20))
+print(equal_tempo_bins)
+tempo_labels = [f"T-{str(binned)}" for binned in equal_tempo_bins]
+tempo_labels.remove(tempo_labels[0])
+print(tempo_labels)
+processed_df['equal_tempo_group'] = pd.cut(
+    processed_df['tempo'], bins=equal_tempo_bins, labels=tempo_labels, right=False)
+print(f"Tempo data after one-hot encoding: \n{processed_df['equal_tempo_group'].head()}")
+processed_df['equal_tempo_group'].value_counts()
+
 
 ---
 

@@ -122,7 +122,7 @@ jupyter notebook scott/music_modes_prediction.ipynb
 **Music Recommendation — Udita**
 
 ```bash
-jupyter notebook udita/recommendation_of_music.ipynb
+jupyter notebook udita/music_recommendation.ipynb
 ```
 
 **Popularity Prediction — Puze**

@@ -220,3 +220,5 @@ __marimo__/
 
 udita/.uvenv
 udita/.ipynb_checkpoints
+udita/*.csv
+udita/excluded
